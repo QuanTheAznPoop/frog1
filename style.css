@@ -588,3 +588,14 @@ footer{
 .yesaccount{
     font-size: 16px;
 }
+
+.notice{
+    border: solid 1px #242E49;  
+    padding: 40px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 2px 3px #242E49;
+    background-color: #242E49;
+    border-radius: 6px;
+}
