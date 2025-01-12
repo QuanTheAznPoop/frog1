@@ -416,6 +416,51 @@ footer{
     margin-block: 5px;
 }
 
+/*for phones*/
+@media screen and (max-width=460px){
+    .table-head{
+        display: flex;
+    }
+
+    .table-head .status{
+        flex: 10%;
+    }
+    
+    .table-head .subjects{
+        flex: 45%;
+    }   
+    
+    .table-head .replies{
+        flex: 20%;
+    }
+    
+    .table-head .last-reply{
+        flex: 25%;
+    }
+
+    .table-row{
+        display: flex;
+    }
+
+    .table-row .status{
+        flex: 10%;
+        font-size: 10px;
+        text-align: center;
+    }
+    
+    .table-row .subjects{
+        flex: 45%;
+    }
+    
+    .table-row .replies{
+        flex: 20%;
+    }
+    
+    .table-row .last-reply{
+        flex: 25%;
+    }
+}
+
 /*----------------------------------*/
 /*details.htm*/
 
@@ -533,6 +578,14 @@ footer{
     font-size:16px;
 }
 
+/*for phones*/
+@media screen and (max-width: 460px) {
+    .login input, .login select{
+        min-width: 200px;
+        margin-top: 5px;
+    }
+}
+
 /*sign up*/
 .signuppage{
     font-size: 28px;
@@ -588,6 +641,16 @@ footer{
 .yesaccount{
     font-size: 16px;
 }
+
+/*for phones*/
+@media screen and (max-width: 460px) {
+    .signup input, .signup select{
+        min-width: 200px;
+        margin-top: 5px;
+    }
+}
+
+/*notice*/
 
 .notice{
     border: solid 1px #242E49;  
