@@ -47,14 +47,9 @@
     <div class="container">
         <script>
 
-            var username = document.getElementById("username").value
-            var password = document.getElementById("password").value
-            let gender = document.getElementById("gender");
-
             let button = document.getElementById("signup-button");
-            button.addEventListener("signup-button", signup()); 
+            button.addEventListener("click", signup()); 
             function signup() {
-                const { Schema, model, models } = require("mongoose");
                 const username = document.getElementById("username").value;
                 const password = document.getElementById("password").value;
                 const gender = document.getElementById("gender").value;
