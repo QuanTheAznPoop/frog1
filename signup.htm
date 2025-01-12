@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frogrum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <u1 class="nav-list">
+                    <span class="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="nav-item">
+                        <a href="home.htm">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posts.htm">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="details.htm">Detail</a>
+                    </li>
+                </u1>
+            </nav>
+            <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
+            <div class="brand"><a href="home.htm">Forum Project</a></div>
+        </div>
+        <!--Search Bar-->
+        <div class="search-bar">
+            <div>
+                <select name="" id="">
+                    <option value="All">All</option>
+                    <option value="Titles">Titles</option>
+                    <option value="Description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <script>
+
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            let gender = document.getElementById("gender");
+
+            let button = document.getElementById("signup-button");
+            button.addEventListener("signup-button", signup()); 
+            function signup() {
+                const { Schema, model, models } = require("mongoose");
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const gender = document.getElementById("gender").value;
+                if (username === "" || password === "") { 
+                    alert("Please enter your mom's credential details and social security number.");
+                }
+                else if(password.length < 8){
+                    alert("Your password must be at least 8 characters long!");
+                }
+                else{
+                    const accountcreated = require("./frog.js");
+                    const userData = new accountcreated({
+                        _username: username, _password: password, _gender: gender
+                    })
+                    accountcreated.save().then(dataLog => console.log(dataLog));
+                    
+                    alert("Your account has been created!");
+                }
+            }
+        </script>
+        <div class="signuppage">
+            <b>Sign up page</b><br>
+        </div>
+        <div class="signup">
+            <input type="text" name="q" id="username" class="username" placeholder="Username"><br>
+            <input type="password" name="q" id="password" class="password" placeholder="Password"><br>
+            <select name="" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="not-to-say">Prefer not to say</option>
+                <option value="others">Others</option>
+            </select><br>
+            <button class="signup-button" id="signup-button" onclick="signup()">Sign up</button>
+        </div>
+        <div class="yesaccount">
+            Already have an account?  
+            <a href="signin.htm">Sign in here.</a>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; &nbsp;Nguyen Anh Quan/Tu Duc Luong/Mai Tien Quang | All Rights Reserved</span> <br>
+        <span>Layout inspired by <a href="https://www.youtube.com/@selmitech">Selmi Abderrahim</a></span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
