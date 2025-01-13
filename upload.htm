@@ -28,7 +28,7 @@
                 </u1>
             </nav>
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
-            <div class="brand"><a href="home.htm">Forum Project</a></div>
+            <div class="brand"><a href="home.htm">Learning Forum Project</a></div>
         </div>
         <!--Search Bar-->
         <div class="search-bar">
@@ -49,17 +49,22 @@
             let button = document.getElementById("submit-post");
             button.addEventListener("click", upload());
             function upload(){
-                alert("Your post have been uploaded!")
+                if(post-topic === "" || post-content === ""){
+                    alert("Please enter the topic and content before uploading. You don't want to make a post that no one understands, do you?");
+                }
+                else{
+                    alert("Your post have been uploaded!")
+                }
             }
         </script>
         <div class="upload-page">
             <b>Upload page</b> <br>
             <div class="upload-page-description">Create a post here, then you can submit it for everyone to see</div>
             <div class="post-topic">
-                <input type="text" name="q" id="" placeholder="Topic of the post">
+                <input type="text" name="q" id="post-topic" placeholder="Topic of the post">
             </div>
             <div class="post-content">
-                <input type="text" name="q" id="" placeholder="Content of the post">
+                <input type="text" name="q" id="post-content" placeholder="Content of the post">
             </div>
             <button class="submit-post" id="submit-post" onclick="upload()">Submit</button>
             <p></p>
