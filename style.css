@@ -699,11 +699,11 @@ footer{
 
 .upload-page-redirect{
     font-size: 20px;
+    margin-top: 10px;
 }
 
 .upload-page-redirect a{
     color: #FACCCA;
-    margin-top: 10px;
 }
 
 /*for phones*/
