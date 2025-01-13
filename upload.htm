@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frogrum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <u1 class="nav-list">
+                    <span class="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="nav-item">
+                        <a href="home.htm">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posts.htm">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="details.htm">Detail</a>
+                    </li>
+                </u1>
+            </nav>
+            <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
+            <div class="brand"><a href="home.htm">Forum Project</a></div>
+        </div>
+        <!--Search Bar-->
+        <div class="search-bar">
+            <div>
+                <select name="" id="">
+                    <option value="All">All</option>
+                    <option value="Titles">Titles</option>
+                    <option value="Description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <script>
+            let button = document.getElementById("submit-post");
+            button.addEventListener("click", upload());
+            function upload(){
+                alert("Your post have been uploaded!")
+            }
+        </script>
+        <div class="upload-page">
+            <b>Upload page</b> <br>
+            <div class="upload-page-description">Create a post here, then you can submit it for everyone to see</div>
+            <div class="post-topic">
+                <input type="text" name="q" id="" placeholder="Topic of the post">
+            </div>
+            <div class="post-content">
+                <input type="text" name="q" id="" placeholder="Content of the post">
+            </div>
+            <button class="submit-post" id="submit-post" onclick="upload()">Submit</button>
+            <p></p>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; &nbsp;Nguyen Anh Quan/Tu Duc Luong/Mai Tien Quang | All Rights Reserved</span> <br>
+        <span>Layout inspired by <a href="https://www.youtube.com/@selmitech">Selmi Abderrahim</a></span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
