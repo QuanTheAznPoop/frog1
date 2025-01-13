@@ -703,4 +703,12 @@ footer{
 
 .upload-page-redirect a{
     color: #FACCCA;
+    margin-top: 10px;
+}
+
+/*for phones*/
+@media screen and (max-width=460px) {
+    .post-topic input{
+        min-width: 200px;
+    }
 }
