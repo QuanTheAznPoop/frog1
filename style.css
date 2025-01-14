@@ -675,13 +675,13 @@ footer{
 }
 
 .post-topic input{
-    min-width: 600px;
+    width: 60%;
     padding: 5px;
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-.post-content input{
+.post-content textarea{
     width: 100%;
     min-height: 100px;
     margin-bottom: 20px;
@@ -705,9 +705,3 @@ footer{
     color: #FACCCA;
 }
 
-/*for phones*/
-@media screen and (max-width: 460px) {
-    .post-topic input{
-        max-width: 200px;
-    }
-}
