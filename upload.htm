@@ -49,8 +49,8 @@
             let button = document.getElementById("submit-post");
             button.addEventListener("click", upload());
             function upload(){
-                const posttopic = document.getElementById("post-topic");
-                const postcontent = document.getElementById("post-content");
+                const posttopic = document.getElementById("post-topic").value;
+                const postcontent = document.getElementById("post-content").value;
                 if(posttopic === "" || postcontent === ""){
                     alert("Please enter the topic and content before uploading. You don't want to make a post that no one understands, do you?");
                 }
