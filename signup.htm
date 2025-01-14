@@ -45,34 +45,10 @@
     </header>
 
     <div class="container">
-        <script>
-
-            let button = document.getElementById("signup-button");
-            button.addEventListener("click", signup()); 
-            function signup() {
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
-                const gender = document.getElementById("gender").value;
-                if (username === "" || password === "") { 
-                    alert("Please enter both the username and password fields.");
-                }
-                else if(password.length < 8){
-                    alert("Your password must be at least 8 characters long!");
-                }
-                else{
-                    const accountcreated = require("./frog.js");
-                    const userData = new accountcreated({
-                        _username: username, _password: password, _gender: gender
-                    })
-                    accountcreated.save().then(dataLog => console.log(dataLog));
-                    
-                    alert("Your account has been created!");
-                }
-            }
-        </script>
         <div class="signuppage">
             <b>Sign up page</b><br>
         </div>
+        <form id="signup-form">
         <div class="signup">
             <input type="text" name="q" id="username" class="username" placeholder="Username"><br>
             <input type="password" name="q" id="password" class="password" placeholder="Password"><br>
@@ -82,8 +58,44 @@
                 <option value="not-to-say">Prefer not to say</option>
                 <option value="others">Others</option>
             </select><br>
-            <button class="signup-button" id="signup-button" onclick="signup()">Sign up</button>
+            <button class="signup-button" type="button" id="signup-button">Sign Up</button>
         </div>
+        </form>
+    <script>
+        document.getElementById("signup-button").addEventListener("click", async () => {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const gender = document.getElementById("gender").value;
+
+            if (username === "" || password === "") {
+                alert("Please enter both the username and password fields.");
+            } else if (password.length < 8) {
+                alert("Your password must be at least 8 characters long!");
+            } else {
+                try {
+                    // Send POST request to the server
+                    const response = await fetch("http://localhost:3000/signup", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ username, password, gender }),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message);
+                    } else {
+                        alert("Error: " + result.message);
+                    }
+                } catch (error) {
+                    console.error("Error during signup:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+            }
+        });
+    </script>
         <div class="yesaccount">
             Already have an account?  
             <a href="signin.htm">Sign in here.</a>
