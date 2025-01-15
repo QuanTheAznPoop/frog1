@@ -30,18 +30,58 @@
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
             <div class="brand"><a href="index.html">Learning Forum Project</a></div>
         </div>
+        <div class="signin">
+            <a href="signin.htm"><i class="fa fa-sign-in"></i> Sign In</a>
+        </div>
         <!--Search Bar-->
+        <div class="notice">
+            <b>Notice:</b><br>
+            Jan 15th 2025 Patch Notes:<br>
+            Signing up and Signing in is now possible, however server.js has to be running on your machine for those 2 functions to work.<br>
+            You can still look around the page to see the design, however making posts, replying to posts and searching for information does not work. Thanks for reading. - Nguyen Anh Quan
+        </div>
+        <form id="searchbar">
         <div class="search-bar">
             <div>
                 <select name="" id="">
                     <option value="All">All</option>
                     <option value="Titles">Titles</option>
                     <option value="Description">Description</option>
+                    <option value="Users">Users</option>
                 </select>
-                <input type="text" name="q" id="" placeholder="Search...">
-                <button><i class="fa fa-search"></i></button>
+                <input type="text" name="q" id="inputfield" placeholder="Search...">
+                <button id="search-button" type="button"><i class="fa fa-search"></i></button>
             </div>
         </div>
+        </form>
+        <script>
+        document.getElementById("search-button").addEventListener("click", async () => {
+            event.preventDefault();
+            const username = document.getElementById("inputfield").value;
+            try{
+                    // Send POST request to the server
+                    const response = await fetch("http://localhost:3000/search", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ username }),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message);
+                    } else {
+                        alert("Error: " + result.message);
+                    }
+                
+            }
+            catch (error) {
+                    console.error("Error during signin:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+        })
+        </script>
     </header>
 
     <div class="container">

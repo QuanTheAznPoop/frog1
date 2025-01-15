@@ -30,18 +30,58 @@
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
             <div class="brand"><a href="index.html">Learning Forum Project</a></div>
         </div>
+        <div class="signin">
+            <a href="signin.htm"><i class="fa fa-sign-in"></i> Sign In</a>
+        </div>
         <!--Search Bar-->
+        <div class="notice">
+            <b>Notice:</b><br>
+            Jan 15th 2025 Patch Notes:<br>
+            Signing up and Signing in is now possible, however server.js has to be running on your machine for those 2 functions to work.<br>
+            You can still look around the page to see the design, however making posts, replying to posts and searching for information does not work. Thanks for reading. - Nguyen Anh Quan
+        </div>
+        <form id="searchbar">
         <div class="search-bar">
             <div>
                 <select name="" id="">
                     <option value="All">All</option>
                     <option value="Titles">Titles</option>
                     <option value="Description">Description</option>
+                    <option value="Users">Users</option>
                 </select>
-                <input type="text" name="q" id="" placeholder="Search...">
-                <button><i class="fa fa-search"></i></button>
+                <input type="text" name="q" id="inputfield" placeholder="Search...">
+                <button id="search-button" type="button"><i class="fa fa-search"></i></button>
             </div>
         </div>
+        </form>
+        <script>
+        document.getElementById("search-button").addEventListener("click", async () => {
+            event.preventDefault();
+            const username = document.getElementById("inputfield").value;
+            try{
+                    // Send POST request to the server
+                    const response = await fetch("http://localhost:3000/search", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ username }),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message);
+                    } else {
+                        alert("Error: " + result.message);
+                    }
+                
+            }
+            catch (error) {
+                    console.error("Error during signin:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+        })
+        </script>
     </header>
 
     <div class="container">
@@ -63,6 +103,14 @@
             <b>Upload page</b> <br>
             <div class="upload-page-description">Create a post here, then you can submit it for everyone to see</div>
             <div class="post-topic">
+                <select name="" id="">
+                    <option value="Calculus-1">Calculus 1</option>
+                    <option value="Calculus-2">Calculus 2</option>
+                    <option value="Calculus-3">Calculus 3</option>
+                    <option value="engine-lubes-functions">Engine Components, Lubrication Systems and Functions</option>
+                    <option value="Physics-1">Physics 1</option>
+                    <option value="Probability">Probability</option>
+                </select> <br>
                 <input type="text" name="q" id="post-topic" placeholder="Topic of the post">
             </div>
             <div class="post-content">

@@ -697,6 +697,14 @@ footer{
     border-radius: 4px;
 }
 
+.upload-page select{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 4px;
+    margin-top: 10px;
+}
+
 .upload-page-redirect{
     font-size: 20px;
 }
@@ -704,4 +712,3 @@ footer{
 .upload-page-redirect a{
     color: #FACCCA;
 }
-
