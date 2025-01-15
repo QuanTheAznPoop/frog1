@@ -51,6 +51,24 @@ app.post("/signin", async (req, res) => {
     }
 });
 
+app.post("/search", async (req, res) => {
+    const { username } = req.body;
+
+    try {
+        const matchedSearch = await Schema.findOne({ _username: username });
+        if (!matchedSearch) {
+            return res.status(400).json({ message: "No user matches your search." });
+        }
+
+        res.status(200).json({ message: "User found!" });
+
+    }
+    catch(err) {
+        console.error(err);
+        res.status(500).json({ message: "An error occurred, please try again later." });
+    }
+});
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
