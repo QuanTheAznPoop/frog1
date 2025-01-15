@@ -34,6 +34,23 @@ app.post("/signup", async (req, res) => {
     }
 });
 
+app.post("/signin", async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const matched = await Schema.findOne({ _username: username, _password: password });
+        if (!matched) {
+            return res.status(400).json({ message: "Invalid username or password." });
+        }
+
+        res.status(200).json({ message: "Successful sign in!" });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "An error occurred during signin" });
+    }
+});
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
