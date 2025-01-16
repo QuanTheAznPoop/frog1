@@ -37,8 +37,8 @@
         <div class="notice">
             <b>Notice:</b><br>
             Jan 15th 2025 Patch Notes:<br>
-            Signing up and Signing in is now possible, however server.js has to be running on your machine for those 2 functions to work.<br>
-            You can still look around the page to see the design, however making posts, replying to posts and searching for information does not work. Thanks for reading. - Nguyen Anh Quan
+            Signing up and Signing in works, you can now search for users, however server.js has to be running on your machine for those 3 functions to work.<br>
+            You can still look around the page to see the design, however making posts, replying to posts does not work. Thanks for reading. - Nguyen Anh Quan
         </div>
         <form id="searchbar">
         <div class="search-bar">
@@ -92,6 +92,7 @@
         <div class="signup">
             <input type="text" name="q" id="username" class="username" placeholder="Username"><br>
             <input type="password" name="q" id="password" class="password" placeholder="Password"><br>
+            <input type="text" name="q" id="school" class="school" placeholder="School"><br>
             <select name="" id="gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -107,9 +108,10 @@
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
             const gender = document.getElementById("gender").value;
+            const school = document.getElementById("school").value;
 
-            if (username === "" || password === "") {
-                alert("Please enter both the username and password fields.");
+            if (username === "" || password === "" || school == "") {
+                alert("Please enter the username, password and school fields.");
             } else if (password.length < 8) {
                 alert("Your password must be at least 8 characters long!");
             } else {
@@ -120,7 +122,7 @@
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ username, password, gender }),
+                        body: JSON.stringify({ username, password, gender, school }),
                     });
 
                     const result = await response.json();

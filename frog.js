@@ -22,6 +22,10 @@ const signup = new mongoose.Schema({
         required: true
 
         },
+    _school: {
+        type: String,
+        required: true
+    },
     });
 
 const model = mongoose.model("SignupSchema", signup);

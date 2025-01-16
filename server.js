@@ -12,7 +12,7 @@ mongoose.connect("mongodb+srv://QuanTheAznPoop:80ObGnh0qEQduunW@ballshd.ixx9f.mo
     .catch(err => console.error("MongoDB connection error:", err));
 
 app.post("/signup", async (req, res) => {
-    const { username, password, gender } = req.body;
+    const { username, password, gender, school } = req.body;
 
     try {
         const existed = await Schema.findOne({ _username: username });
@@ -24,6 +24,7 @@ app.post("/signup", async (req, res) => {
             _username: username,
             _password: password,
             _gender: gender,
+            _school: school,
         });
 
         await newUser.save();
